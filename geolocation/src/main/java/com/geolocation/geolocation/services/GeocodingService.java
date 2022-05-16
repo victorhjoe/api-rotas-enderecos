@@ -16,6 +16,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class GeocodingService {
     
+    /**
+     * Método para retornas as latitudes e longitudes dos endereços informados
+     * @param enderecosListReq
+     * @return Os enderecos por extenso e suas respectivas localizações no mapa
+     */
     public List<Endereco> getGeoCodings(List<String> enderecosListReq) {
         
         List<Endereco> enderecosList = new ArrayList<>();

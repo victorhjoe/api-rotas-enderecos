@@ -19,6 +19,11 @@ public class DistanceMatrixService {
     String enderecosString = "";
     Integer enderecoIndex = 0;
     
+    /**
+     * Método para inforrmar a distância das rotas entre os endereços informados e o tempo de locomoção
+     * @param enderecosDTOListReq
+     * @return A lista completa de enderecos com distância em Km e o tempo de locomoção
+     */
     public List<EnderecoDTO> getDistances(List<EnderecoDTO> enderecosDTOListReq){
 
         List<EnderecoDTO> enderecosDTOList = new ArrayList<>();

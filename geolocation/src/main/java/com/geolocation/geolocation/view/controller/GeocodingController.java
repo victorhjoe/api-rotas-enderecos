@@ -8,9 +8,11 @@ import com.geolocation.geolocation.services.DistanceMatrixService;
 import com.geolocation.geolocation.services.GeocodingService;
 import com.geolocation.geolocation.shared.EnderecoDTO;
 import com.geolocation.geolocation.view.model.Endereco;
-import com.geolocation.geolocation.view.model.RelatorioEndereco;
+import com.geolocation.geolocation.view.model.EnderecoResponse;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GeocodingController {
     
     @GetMapping
-    public RelatorioEndereco obterRelatorioEndereco(@RequestParam String enderecos){
+    public ResponseEntity<EnderecoResponse> obterRelatorioEndereco(@RequestParam String enderecos){
 
         List<String> enderecosRequest = Arrays.asList(enderecos.split(";"));
 
@@ -39,8 +41,8 @@ public class GeocodingController {
         
         response = distanceService.getDistances(response);
         
-        RelatorioEndereco relatorio = new RelatorioEndereco(response);
+        EnderecoResponse relatorio = new EnderecoResponse(response);
 
-        return relatorio;
+        return new ResponseEntity<>(relatorio, HttpStatus.OK) ;
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.geolocation.geolocation.shared.EnderecoDTO;
 
-public class RelatorioEndereco {
+public class EnderecoResponse {
 
     private List<EnderecoDTO> enderecosList;
 
@@ -20,7 +20,7 @@ public class RelatorioEndereco {
 
     private Double menorRota = 0.0;
 
-    public RelatorioEndereco(List<EnderecoDTO> enderecosList) {
+    public EnderecoResponse(List<EnderecoDTO> enderecosList) {
 
         this.enderecosList = enderecosList;
 
